@@ -220,9 +220,9 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnThemBaloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemBaloActionPerformed
-        this.hide();
+        this.setVisible(false);
         DS_Balo g = new DS_Balo();
-        g.show();
+        g.setVisible(true);
     }//GEN-LAST:event_btnThemBaloActionPerformed
 
     private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed

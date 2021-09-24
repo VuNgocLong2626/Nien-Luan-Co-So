@@ -8,6 +8,7 @@ package nien_luan;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -22,8 +23,10 @@ public class DS_Balo extends javax.swing.JFrame {
      */
     public DS_Balo() {
         initComponents();
+        this.setSize(850, 550);
         this.showBalo();
         this.resetButton(true);
+        this.resetview();
         this.setLocation(960 - this.getSize().width / 2, 300);
     }
 
@@ -56,6 +59,7 @@ public class DS_Balo extends javax.swing.JFrame {
             
             ps.executeUpdate();
             ClsDatabase.close();
+            JOptionPane.showMessageDialog(this, "Thêm balo thành công!");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -99,6 +103,7 @@ public class DS_Balo extends javax.swing.JFrame {
             
             ps.executeUpdate();
             ClsDatabase.close();
+            JOptionPane.showMessageDialog(this, "Cập nhật balo thành công!");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -131,6 +136,7 @@ public class DS_Balo extends javax.swing.JFrame {
             ps.setInt(1, this.id);
             ps.executeUpdate();
             ClsDatabase.close();
+            JOptionPane.showMessageDialog(this, "Xóa balo thành công!");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -163,9 +169,11 @@ public class DS_Balo extends javax.swing.JFrame {
         btnQuayLai = new javax.swing.JButton();
         btnThoatToan = new javax.swing.JButton();
         btnThemDoVat = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Danh Sách Balo");
+        setSize(new java.awt.Dimension(850, 550));
 
         tableDS_Balo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -210,7 +218,7 @@ public class DS_Balo extends javax.swing.JFrame {
             }
         });
 
-        btnCapNhat.setText("Cập Nhập Balo");
+        btnCapNhat.setText("Cập Nhật Balo");
         btnCapNhat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCapNhatActionPerformed(evt);
@@ -225,8 +233,18 @@ public class DS_Balo extends javax.swing.JFrame {
         });
 
         btnQuayLai.setText("Quay lại");
+        btnQuayLai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQuayLaiActionPerformed(evt);
+            }
+        });
 
         btnThoatToan.setText("Chọn Thuật Toán");
+        btnThoatToan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThoatToanActionPerformed(evt);
+            }
+        });
 
         btnThemDoVat.setText("Thêm Đồ Vật");
         btnThemDoVat.addActionListener(new java.awt.event.ActionListener() {
@@ -239,11 +257,20 @@ public class DS_Balo extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 797, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jSeparator1)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(335, 335, 335)
+                .addComponent(jLabel10)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(148, 148, 148)
+                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,8 +278,8 @@ public class DS_Balo extends javax.swing.JFrame {
                                     .addComponent(jLabel2))
                                 .addGap(34, 34, 34)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtMSBalo, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
-                                    .addComponent(txtTKLuong)))
+                                    .addComponent(txtMSBalo)
+                                    .addComponent(txtTKLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addGap(44, 44, 44)
@@ -262,31 +289,25 @@ public class DS_Balo extends javax.swing.JFrame {
                                 .addGap(56, 56, 56)
                                 .addComponent(rdbLoai3))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(325, 325, 325)
-                        .addComponent(jLabel10))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnThoatToan)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnLuu)
-                                .addGap(21, 21, 21)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnThoatToan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnLuu, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(63, 63, 63)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnThemDoVat)
-                            .addComponent(btnCapNhat))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnCapNhat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnThemDoVat, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(69, 69, 69)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnXoa)
-                            .addComponent(btnQuayLai))))
-                .addContainerGap(289, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnXoa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnQuayLai, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(186, 186, 186))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel10)
-                .addGap(26, 26, 26)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtMSBalo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -301,17 +322,21 @@ public class DS_Balo extends javax.swing.JFrame {
                     .addComponent(rdbLoai2)
                     .addComponent(rdbLoai3))
                 .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLuu)
-                    .addComponent(btnCapNhat)
-                    .addComponent(btnXoa))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnThoatToan)
-                    .addComponent(btnThemDoVat)
-                    .addComponent(btnQuayLai))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnCapNhat)
+                            .addComponent(btnXoa))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnThoatToan)
+                            .addComponent(btnThemDoVat)
+                            .addComponent(btnQuayLai)))
+                    .addComponent(btnLuu, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -360,9 +385,22 @@ public class DS_Balo extends javax.swing.JFrame {
     private void btnThemDoVatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemDoVatActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        DS_DoVat g = new DS_DoVat(this.id);
+        DS_DoVat g = new DS_DoVat(this.id, txtMSBalo.getText(), Float.parseFloat(txtTKLuong.getText()), getloai());
         g.setVisible(true);
     }//GEN-LAST:event_btnThemDoVatActionPerformed
+
+    private void btnQuayLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuayLaiActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        Main m = new Main();
+        m.setVisible(true);
+    }//GEN-LAST:event_btnQuayLaiActionPerformed
+
+    private void btnThoatToanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatToanActionPerformed
+        this.setVisible(false);
+        Thuat_Toan t = new Thuat_Toan();
+        t.setVisible(true);
+    }//GEN-LAST:event_btnThoatToanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -412,6 +450,7 @@ public class DS_Balo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JRadioButton rdbLoai1;
     private javax.swing.JRadioButton rdbLoai2;
     private javax.swing.JRadioButton rdbLoai3;

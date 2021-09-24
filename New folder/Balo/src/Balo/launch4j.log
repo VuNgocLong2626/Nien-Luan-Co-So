@@ -1,0 +1,45 @@
+
+
+Version:	3.14
+CmdLine:	E:\YL\NienLuan\Balo\src\Balo\chay.exe --l4j-debug
+WOW64:		yes
+Working dir:	E:\YL\NienLuan\Balo\src\Balo\.
+Java min ver:	1.005.000
+Java max ver:	
+64-bit search:	SOFTWARE\JavaSoft\Java Runtime Environment...
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8
+Check launcher:	C:\Program Files\Java\jre1.8.0_281\bin\javaw.exe (not found)
+Ignore:		1.008.000
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8.0_111
+Check launcher:	C:\Program Files\Java\jre1.8.0_111\bin\javaw.exe (OK)
+Match:		1.008.000_111
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8.0_221
+Check launcher:	C:\Program Files\Java\jre1.8.0_221\bin\javaw.exe (not found)
+Ignore:		1.008.000_221
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8.0_281
+Check launcher:	C:\Program Files\Java\jre1.8.0_281\bin\javaw.exe (not found)
+Ignore:		1.008.000_281
+64-bit search:	SOFTWARE\JavaSoft\Java Development Kit...
+Check:		SOFTWARE\JavaSoft\Java Development Kit\1.8
+Ignore:		1.008.000
+Check:		SOFTWARE\JavaSoft\Java Development Kit\1.8.0_111
+Ignore:		1.008.000_111
+Check:		SOFTWARE\JavaSoft\Java Development Kit\1.8.0_221
+Check launcher:	C:\Program Files\Java\jdk1.8.0_221\bin\javaw.exe (OK)
+Match:		1.008.000_221
+64-bit search:	SOFTWARE\JavaSoft\JRE...
+64-bit search:	SOFTWARE\JavaSoft\JDK...
+Check:		SOFTWARE\JavaSoft\JDK\15
+Check launcher:	C:\Program Files\Java\jdk-15.0.2\bin\javaw.exe (not found)
+Ignore:		1.015.000
+Check:		SOFTWARE\JavaSoft\JDK\15.0.1
+Check launcher:	C:\Program Files\Java\jdk-15.0.1\bin\javaw.exe (not found)
+Ignore:		1.015.000_001
+Check:		SOFTWARE\JavaSoft\JDK\15.0.2
+Check launcher:	C:\Program Files\Java\jdk-15.0.2\bin\javaw.exe (not found)
+Ignore:		1.015.000_002
+Runtime used:	1.008.000_221 (64-bit)
+Launcher:	C:\Program Files\Java\jdk1.8.0_221\bin\javaw.exe
+Launcher args:	-jar "E:\YL\NienLuan\Balo\src\Balo\chay.exe"
+Args length:	44/32768 chars
+Exit code:	0
