@@ -43,6 +43,7 @@ public class DS_Balo extends javax.swing.JFrame {
     
     static Balo balo;
     private int id;
+    private int sluong;
     //Chức Năng Của from
     
     //Thêm Cái Balo vào MySQL
@@ -371,6 +372,7 @@ public class DS_Balo extends javax.swing.JFrame {
             rdbLoai2.setSelected(true);
         if(loai == 3)
             rdbLoai3.setSelected(true);
+        this.sluong = Integer.parseInt(model.getValueAt(row, 4).toString());
         this.resetButton(false);
     }//GEN-LAST:event_tableDS_BaloMouseClicked
 
@@ -398,7 +400,7 @@ public class DS_Balo extends javax.swing.JFrame {
 
     private void btnThoatToanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatToanActionPerformed
         this.setVisible(false);
-        Thuat_Toan t = new Thuat_Toan();
+        Thuat_Toan t = new Thuat_Toan(txtMSBalo.getText(),Float.parseFloat(txtTKLuong.getText()),getloai(),this.sluong, this.id);
         t.setVisible(true);
     }//GEN-LAST:event_btnThoatToanActionPerformed
 

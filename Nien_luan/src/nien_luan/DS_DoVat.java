@@ -39,7 +39,8 @@ public class DS_DoVat extends javax.swing.JFrame {
         labelLoai.setText(""+loai);
         this.showDoVat();
         this.stt = this.soDoVat();
-        System.out.println("So luong do vat :" + stt);
+        this.re(true);
+//        System.out.println("So luong do vat :" + stt);
     }
     
     private int idbalo;
@@ -60,7 +61,7 @@ public class DS_DoVat extends javax.swing.JFrame {
             ps.setString(2, txtTenDV.getText());
             ps.setFloat(3, Float.parseFloat(txtKLuong.getText()));
             ps.setFloat(4, Float.parseFloat(txtGiaTri.getText()));
-            ps.setInt(5, (int)jsSoLuong.getValue());
+            ps.setInt(5, checksoluong());
             ps.setInt(6, this.stt);
             
             ps.executeUpdate();
@@ -70,6 +71,17 @@ public class DS_DoVat extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
+    
+    //Check đầu vào của số lướng
+    public int checksoluong(){
+        int i = (int)jsSoLuong.getValue();
+        if(this.loai == 1)
+            i = 0;
+        if(this.loai == 3)
+            i = 1;
+        return i;
+    }
+    
     
     //Hiển thị tất cả đồ vật
     public void showDoVat(){
@@ -116,7 +128,7 @@ public class DS_DoVat extends javax.swing.JFrame {
             ps.setString(1, txtTenDV.getText());
             ps.setFloat(2, Float.parseFloat(txtKLuong.getText()));
             ps.setFloat(3, Float.parseFloat(txtGiaTri.getText()));
-            ps.setInt(4, (int)jsSoLuong.getValue());
+            ps.setInt(4, checksoluong());
             ps.setInt(5, tt);
             
             ps.executeUpdate();
@@ -162,6 +174,20 @@ public class DS_DoVat extends javax.swing.JFrame {
             e.printStackTrace();
         }
         return i;
+    }
+    
+    //Trạng thái button
+    public void re(boolean k){
+        btnThem.setEnabled(k);
+        btnCNhat.setEnabled(!k);
+        btnXoa.setEnabled(!k);
+    }
+    
+    //reset from
+    public void refrom(){
+        txtGiaTri.setText("");
+        txtKLuong.setText("");
+        txtTenDV.setText("");
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -395,6 +421,7 @@ public class DS_DoVat extends javax.swing.JFrame {
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         this.themDV();
         this.showDoVat();
+        this.refrom();
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnQuayLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuayLaiActionPerformed
@@ -426,19 +453,24 @@ public class DS_DoVat extends javax.swing.JFrame {
         this.txtGiaTri.setText(model.getValueAt(row, 3).toString());
         this.jsSoLuong.setValue(Integer.parseInt(model.getValueAt(row, 4).toString()));
         this.tt = Integer.parseInt(model.getValueAt(row, 5).toString());
-        System.out.println(tt);
+        this.re(false);
+//        System.out.println(tt);
     }//GEN-LAST:event_tableDVatMouseClicked
 
     private void btnCNhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCNhatActionPerformed
         // TODO add your handling code here:
         this.capNhatDoVat();
         this.showDoVat();
+        this.re(true);
+        this.refrom();
     }//GEN-LAST:event_btnCNhatActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
         this.xoaDoVat();
         this.showDoVat();
+        this.re(true);
+        this.refrom();
     }//GEN-LAST:event_btnXoaActionPerformed
 
     /**

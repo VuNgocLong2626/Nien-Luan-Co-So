@@ -13,15 +13,23 @@ import jdk.nashorn.internal.codegen.CompilerConstants;
  * @author longs
  */
 public class Balo {
-    private int maso;
+    private String maso;
     private float khoiluong;
     private int loai;
     private int soluongdv;
     private DoVat[] dv;
+
+    public DoVat[] getDv() {
+        return dv;
+    }
+
+    public void setDv(DoVat[] dv) {
+        this.dv = dv;
+    }
     private int max = 99;
     
     public Balo(){
-        maso = 0;
+        maso = "";
         khoiluong = 0;
         loai = 0;
         soluongdv = max;
@@ -31,7 +39,7 @@ public class Balo {
         }
     }
     
-    public Balo(int maso,float  khoiluong,int loai,int soluongdv, DoVat d[]){
+    public Balo(String maso,float  khoiluong,int loai,int soluongdv, DoVat d[]){
         this.maso = maso;
         this.khoiluong = khoiluong;
         this.loai = loai;
@@ -42,11 +50,11 @@ public class Balo {
         }
     }
     
-    public int getMaso() {
+    public String getMaso() {
         return maso;
     }
 
-    public void setMaso(int maso) {
+    public void setMaso(String maso) {
         this.maso = maso;
     }
 
@@ -66,10 +74,27 @@ public class Balo {
         this.loai = loai;
     }
     
+    public int getSoluongdv() {
+        return soluongdv;
+    }
+
+    public void setSoluongdv(int soluongdv) {
+        this.soluongdv = soluongdv;
+    }
+
+    public void getDVSQL(int i, int stt,String ten,float khoiluong,float giatri,int soluong,int idDV){
+        this.dv[i].setStt(stt);
+        this.dv[i].setTen(ten);
+        this.dv[i].setKhoiluong(khoiluong);
+        this.dv[i].setGiatri(giatri);
+        this.dv[i].setSoluong(soluong);
+        this.dv[i].setIdDV(idDV);
+    }
+    
     public void input(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Ma so : ");
-        this.maso = sc.nextInt();
+        this.maso = sc.nextLine();
         System.out.println("Khoi Luong Balo : ");
         this.khoiluong = sc.nextFloat();
         System.out.println("Loai : ");
@@ -81,10 +106,11 @@ public class Balo {
         }
     }
     
-    public void inputSQL(int maso,float khoiluong,int loai){
+    public void inputSQL(String maso,float khoiluong,int loai, int soluongdv){
         this.maso = maso;
         this.khoiluong = khoiluong;
         this.loai = loai;
+        this.soluongdv = soluongdv;
     }
     
     public String output(){
@@ -158,7 +184,6 @@ public class Balo {
     }
     
     public void BranchAndBound(int i){
-        System.out.println(dv[i].outputDV());
         int th; //Số Trường Hợp
         if(loai == 1){
             th = (int)(V/dv[i].getKhoiluong());
@@ -237,13 +262,13 @@ public class Balo {
             }
         }
         //In Bảng Ra xem thử
-        System.out.println("\n");
-        for(int i = 0; i<soluongdv; i++){
-            for(int j = 0; j<=Wnguyen; j++){
-                System.out.print(BangF[i][j] + "|" + BangX[i][j] + "    ");
-            }
-            System.out.print("\n");
-        }
+//        System.out.println("\n");
+//        for(int i = 0; i<soluongdv; i++){
+//            for(int j = 0; j<=Wnguyen; j++){
+//                System.out.print(BangF[i][j] + "|" + BangX[i][j] + "    ");
+//            }
+//            System.out.print("\n");
+//        }
     }
     
     public void TraBang(){
@@ -263,6 +288,35 @@ public class Balo {
         }
     }
     
+    public String outputBalo(){
+        String to = "Ma so : "+this.maso+"  Khoi Luong : "+this.khoiluong+" Loai : "+this.loai+"    So luong dv : "+this.soluongdv+"\n";
+        return to;
+    }
+    
+    public float khoiLuongCoTrongBalo(){
+        float kl = 0;
+        for(int i = 0; i < soluongdv; i++){
+            kl += dv[i].getKhoiluong() * dv[i].getPhuongan();
+        }
+        return kl;
+    }
+    
+    public float tongGiaTri(){
+        float gt = 0;
+        for(int i = 0; i < soluongdv; i++){
+            gt += dv[i].getGiatri() * dv[i].getPhuongan();
+        }
+        return gt;
+    }
+    
+    public void SapXepSTT(DoVat DV[],int n){
+        for(int i = 0; i < n;i++){
+            for(int j = i+1; j < n; j++ ){
+                if(DV[i].getStt() > DV[j].getStt())
+                    swap(DV[i],DV[j]);
+            }
+        }
+    }
 //    public static void main(String[] args) {
 //        
 ////        DoVat[] d = new DoVat[3];
