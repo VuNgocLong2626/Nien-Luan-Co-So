@@ -275,6 +275,7 @@ public class Thuat_Toan extends javax.swing.JFrame {
         labelChuaDuoc = new javax.swing.JLabel();
         labelGiaTri = new javax.swing.JLabel();
         labelKLDu = new javax.swing.JLabel();
+        btnSoSanh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Thuật Toán");
@@ -368,6 +369,13 @@ public class Thuat_Toan extends javax.swing.JFrame {
 
         labelKLDu.setText("       ");
 
+        btnSoSanh.setText("So Sánh Thuật Toán");
+        btnSoSanh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSoSanhActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -381,13 +389,6 @@ public class Thuat_Toan extends javax.swing.JFrame {
             .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(rdThamAn)
-                        .addGap(18, 18, 18)
-                        .addComponent(rdNhanhCan)
-                        .addGap(18, 18, 18)
-                        .addComponent(rdQuyHoachDong))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(346, 346, 346)
                         .addComponent(jLabel10))
@@ -407,33 +408,44 @@ public class Thuat_Toan extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(labelKLDu))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnThucHien)
-                            .addComponent(btnQuayLai, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(39, 39, 39)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
-                            .addComponent(btnThoat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(203, 203, 203)
+                        .addGap(90, 90, 90)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(18, 18, 18)
-                                .addComponent(labelMaSo))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnThucHien)
+                                    .addComponent(btnQuayLai, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(33, 33, 33)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(36, 36, 36)
+                                        .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnSoSanh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(131, 131, 131)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(labelMaSo))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                    .addComponent(jLabel7)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(labelLoai))
+                                                .addComponent(jLabel6))
+                                            .addComponent(jLabel8))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(labelTongKhoiLuong)
+                                            .addComponent(labelSoDoVat)))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(jLabel7)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(labelLoai))
-                                        .addComponent(jLabel6))
-                                    .addComponent(jLabel8))
+                                .addComponent(rdThamAn)
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelTongKhoiLuong)
-                                    .addComponent(labelSoDoVat))))))
+                                .addComponent(rdNhanhCan)
+                                .addGap(18, 18, 18)
+                                .addComponent(rdQuyHoachDong)))))
                 .addContainerGap(167, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -457,14 +469,16 @@ public class Thuat_Toan extends javax.swing.JFrame {
                     .addComponent(btnThucHien)
                     .addComponent(jButton2)
                     .addComponent(labelTongKhoiLuong)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel6)
+                    .addComponent(btnThoat))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnThoat)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnQuayLai)
+                        .addComponent(btnSoSanh))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel7)
-                        .addComponent(labelLoai))
-                    .addComponent(btnQuayLai))
+                        .addComponent(labelLoai)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -519,40 +533,18 @@ public class Thuat_Toan extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
-            //        try {
-//            JFileChooser excelFile = new JFileChooser();
-//            excelFile.showSaveDialog(null);
-//            String str = excelFile.getSelectedFile().toString() + ".txt";
-//            System.out.println(str);
-//            File file = new File(str);
-//            Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF8"));
-//            
-//            out.append("Ma So :" + labelMaSo.getText()).append("\n");
-//            out.append("Tong Khoi Luong :" + labelTongKhoiLuong.getText()).append("\n");
-//            out.append("Loai :" + labelLoai.getText()).append("\n");
-//            out.append("Tong So Do Vat :" + labelSoDoVat.getText()).append("\n\n\n");
-//            if(Integer.parseInt(labelLoai.getText()) == 1){
-//                out.append("STT \t Khối lượng \t Giá trị \t Đơn giá \t Phương án \t  Tên").append("\n");
-//                for(int i = 0; i<balo.getSoluongdv(); i++){
-//                    out.append(balo.getDv()[i].getStt() + " \t " + balo.getDv()[i].getTen() + " \t " + balo.getDv()[i].getGiatri() + " \t " +balo.getDv()[i].getDongia() + " \t " + balo.getDv()[i].getPhuongan() + " \t\n");
-//                }
-//            }else{
-//                out.append("STT \t Khối lượng \t Giá trị \t Đơn giá \t Số lượng \t Phương án \t  Tên").append("\n");
-//                for(int i = 0; i < balo.getSoluongdv(); i++){
-//                    out.append(balo.getDv()[i].getStt() + " \t " + balo.getDv()[i].getTen() + " \t " + balo.getDv()[i].getGiatri() + " \t " +balo.getDv()[i].getDongia() + " \t " + balo.getDv()[i].getSoluong() + " \t " + balo.getDv()[i].getPhuongan() + " \t\n");
-//                }
-//            }
-//            
-//            out.flush();
-//            out.close();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
             this.inFile();
         } catch (InterruptedException ex) {
             Logger.getLogger(Thuat_Toan.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnSoSanhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSoSanhActionPerformed
+        // TODO add your handling code here:
+//        this.setVisible(false);
+        Tat_Ca_Thuat_Toan b = new Tat_Ca_Thuat_Toan(balo,khoiLuongMacDinh);
+        b.setVisible(true);
+    }//GEN-LAST:event_btnSoSanhActionPerformed
 
     /**
      * @param args the command line arguments
@@ -591,6 +583,7 @@ public class Thuat_Toan extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnQuayLai;
+    private javax.swing.JButton btnSoSanh;
     private javax.swing.JButton btnThoat;
     private javax.swing.JButton btnThucHien;
     private javax.swing.ButtonGroup buttonGroup1;

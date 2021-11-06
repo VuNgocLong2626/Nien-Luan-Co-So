@@ -39,6 +39,17 @@ public class Balo {
         }
     }
     
+    public Balo(Balo balo){
+        this.maso = balo.getMaso();
+        this.khoiluong = balo.getKhoiluong();
+        this.loai = balo.getLoai();
+        this.soluongdv = balo.getSoluongdv();
+        dv = new DoVat[soluongdv];
+        for (int i = 0 ;i <  soluongdv; i++){
+            dv[i] = new DoVat(balo.dv[i]);
+        }
+    }
+    
     public Balo(String maso,float  khoiluong,int loai,int soluongdv, DoVat d[]){
         this.maso = maso;
         this.khoiluong = khoiluong;

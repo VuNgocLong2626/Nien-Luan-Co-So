@@ -17,7 +17,7 @@ public class ClsDatabase {
     public static boolean open(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo", "root", "long2000");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/nienluan", "root", "long2000");
             return true;
         } catch (Exception e) {
             e.printStackTrace();

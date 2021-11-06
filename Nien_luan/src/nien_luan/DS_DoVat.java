@@ -25,6 +25,11 @@ public class DS_DoVat extends javax.swing.JFrame {
         initComponents();
         this.setLocation(960 - this.getSize().width / 2, 300);
         this.showDoVat();
+        System.out.println(this.labelLoai.getText());
+        if(Integer.parseInt(this.labelLoai.getText()) == 1 || Integer.parseInt(this.labelLoai.getText()) == 3){
+            
+            this.jsSoLuong.setEnabled(false);
+        }
     }
     
     public DS_DoVat(int idbalo, String mso, Float kluong, int loai) {
@@ -40,7 +45,11 @@ public class DS_DoVat extends javax.swing.JFrame {
         this.showDoVat();
         this.stt = this.soDoVat();
         this.re(true);
-//        System.out.println("So luong do vat :" + stt);
+        System.out.println(this.loai);
+        if(this.loai == 1 || this.loai == 3){
+            
+            this.jsSoLuong.setEnabled(false);
+        }
     }
     
     private int idbalo;
